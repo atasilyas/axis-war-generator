@@ -1,0 +1,13 @@
+wsimport -keep -verbose http://www.thomas-bayer.com/axis2/services/BLZService?wsdl -b C:\Users\ilyas\OneDrive\Masaüstü\wsimport
+
+webservice yazmak için ;
+
+1) ilk iş external olan wsdl ilgili ekipten talep edilir 
+2) alınan wsdl den wsimport veya axis üzerinden jar üretilir .
+bu jar üretiimi için yapılması gerekenler kadir den alınan axis projesinde ilk project calısrtırılır ve class'lar generate edilir 
+generate  edilen classlarda clean-install yapılarak jar üretilir.
+3) BU üretilen jar'ı repo ya yüklüyoruz rpo archiva yada artifactory hangisi ise.
+4) Bu webservice externalWebServiceFactory.class'ına eklenir burda bean olusturulur. 
+Bu olsuturulan bean externalWebServiceFactory üzerinden erişilir.
+5) SystemParameter tablosuna ilgili servisin url bilgileri ve servisin timeout süretei eklenir ve kullanılacagı yerde cagırılır.
+6) Tüm tanımlamalardan sonra ilgili tanımlamalarda sorun yoksa ilgili kullanılacak classın içerinsinde bu wsdl clienti kullanılabilir.
